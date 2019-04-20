@@ -1,7 +1,7 @@
 /**
  * Waiter based on API rate limits you enter manually
  *
- *    import coffeebreak from "coffeebreak";
+ *    import patiently from "patiently";
  *
  *    let options = {
  *      startWaitingCallback: function, // default is function(){}, calls a function if waiting necessary
@@ -51,7 +51,7 @@ var ResetHeaderType = {
 /**
  * Waiter based on API response headers like x-ratelimit-...
  *
- *    import coffeebreak from "coffeebreak";
+ *    import patiently from "patiently";
  *
  *    let options = {
  *      startWaitingCallback: function, // default is function(){}, calls a function if waiting necessary

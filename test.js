@@ -1,4 +1,4 @@
-const coffeebreak = require("./index.js");
+const patiently = require("./index.js");
 
 let optionsTest1 = {
     startWaitingCallback: function (info) { console.log("start waiting", info) },
@@ -7,7 +7,7 @@ let optionsTest1 = {
     minutelyLimit: 5,
     hourlyLimit: 10 // reduce to below 6 if its like 5 minutes before a new hour, otherwise you will wait til new hour begins
 }
-let limitWaiter = new coffeebreak.LimitWaiter(optionsTest1);
+let limitWaiter = new patiently.LimitWaiter(optionsTest1);
 
 let test1 = async () => {
     for (let i = 1; i <= 6; i++) {
@@ -26,9 +26,9 @@ let optionsTest2 = {
     limitHeaderName: "x-ratelimit-limit",
     remainHeaderName: "x-ratelimit-remaining",
     resetHeaderName: "x-ratelimit-reset",
-    resetHeaderType: coffeebreak.ResetHeaderType.UNIXEPOCHTIMEINSECONDS
+    resetHeaderType: patiently.ResetHeaderType.UNIXEPOCHTIMEINSECONDS
 }
-let xRateLimitWaiter = new coffeebreak.XRateLimitWaiter(optionsTest2);
+let xRateLimitWaiter = new patiently.XRateLimitWaiter(optionsTest2);
 
 let test2 = async () => {
     for (let i = 1; i <= 6; i++) {
