@@ -1,0 +1,31 @@
+{
+  "name": "patiently",
+  "version": "1.0.0",
+  "description": "Promise based API rate limit handler. Make your API client patient. A legal way to wait for API rate limit resets.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mindactuate/patiently.git"
+  },
+  "keywords": [
+    "x-ratelimit",
+    "retryafter",
+    "rate limit",
+    "retry after",
+    "waiter",
+    "api call rate limit"
+  ],
+  "author": {
+    "name": "Daniel Gruner",
+    "company": "mindactuate",
+    "email": "dnlgrnr911@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mindactuate/patiently/issues"
+  },
+  "homepage": "https://github.com/mindactuate/patiently#readme"
+}
