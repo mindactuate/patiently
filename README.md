@@ -67,13 +67,14 @@ Perhaps you already know about the limits (maybe from the API docs).
 ## How does it work?
 
 - Each function you give to the waiter as a parameter is queued in an array
-``` F -> E D C B A```
+  - ``` F -> E D C B A```
+
 - The longest waiting function is first
-``` F E D C B -> A```
-- Before the function is called it is checked whether we have to wait first or not
-``` F E D C B -> A (wait?)```
+  - ``` F E D C B -> A```
+- Before the function is called, it is checked whether we have to wait first or not
+  - ``` F E D C B -> A (wait?)```
 - If yes the queue processing is *paused* and when the waiting time elapsed, function A will be called
-``` F E D C B -> A (call)```
+  - ``` F E D C B -> A (call)```
 
 ## License
 
