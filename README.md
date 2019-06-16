@@ -17,9 +17,9 @@ Sometimes there is no other way to be patient and to wait for the API rate limit
 
 ## Planned Features
 
-- Add secondly limit feature (e.g. 2 reqs per second).
-- If required I can add a "maxConcurrent" feature like in [bottleneck](https://www.npmjs.com/package/bottleneck)
-- I'm also trying to figure out how to deal with rate limit headers like ```x-ratelimit-remaining``` or ```retry-after```. At first sight this is not so easy, because the first headers only arrive after the first API call. And until then, any number of API calls could have been fired.
+- [x] Add secondly limit feature (e.g. 2 reqs per second).
+- [] If required I can add a "maxConcurrent" feature like in [bottleneck](https://www.npmjs.com/package/bottleneck)
+- [] I'm also trying to figure out how to deal with rate limit headers like ```x-ratelimit-remaining``` or ```retry-after```. At first sight this is not so easy, because the first headers only arrive after the first API call. And until then, any number of API calls could have been fired.
 
 ## Installing
 
@@ -42,6 +42,7 @@ Perhaps you already know about the limits (maybe from the API docs).
        startWaitingCallback: function(info){console.log(info)}, // default is function(){}, calls a function if waiting necessary
        endWaitingCallback: function(info){console.log(info)}, // default is function(){}, calls a function after waiting
        waitingTickCallback: function(info){console.log(info)}, // default is function(){}, calls a function every tick
+       msBetweenTwoCalls: 1000, // default is 0 milliseconds (no waiting time between two calls)
        minutelyLimit: 50, // default is Infinity (no minutely limit set)
        hourlyLimit: 750, // default is Infinity (no hourly limit set)
        test: false // default is false (if true, max waiting time is 5 secs)

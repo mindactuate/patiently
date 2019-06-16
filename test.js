@@ -4,6 +4,7 @@ let optionsTest1 = {
     startWaitingCallback: function (info) { console.log("start waiting", info) },
     endWaitingCallback: function (info) { console.log("end waiting", info) },
     waitingTickCallback: function (info) { console.log("tick", info) },
+    msBetweenTwoCalls: 1000,
     minutelyLimit: 5,
     hourlyLimit: 10,
     test: true

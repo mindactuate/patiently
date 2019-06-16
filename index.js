@@ -9,6 +9,7 @@ const x = Infinity;
  *      startWaitingCallback: {function}, // default is function(){}, calls a function if waiting necessary
  *      endWaitingCallback: {function}, // default is function(){}, calls a function after waiting
  *      waitingTickCallback: {function}, // default is function(){}, calls a function every tick
+ *      msBetweenTwoCalls: {integer}, // default is 0 milliseconds (no waiting time between two calls)
  *      minutelyLimit: {integer}, // default is Infinity (no minutely limit set)
  *      hourlyLimit: {integer}, // default is Infinity (no hourly limit set)
  *      test: {boolean}, // default is false (if true, max waiting time is 5 secs)
@@ -26,6 +27,7 @@ const x = Infinity;
  * @constructor
  */
 function LimitWaiter(options) {
+    this.msWait = options ? options.msBetweenTwoCalls ? Number.isSafeInteger(options.msBetweenTwoCalls) ? options.msBetweenTwoCalls > 0 ? options.msBetweenTwoCalls : 0 : 0 : 0 : 0;
     this.mLim = options ? options.minutelyLimit ? Number.isSafeInteger(options.minutelyLimit) ? options.minutelyLimit > 0 ? options.minutelyLimit : x : x : x : x;
     this.hLim = options ? options.hourlyLimit ? Number.isSafeInteger(options.hourlyLimit) ? options.hourlyLimit > 0 ? options.hourlyLimit : x : x : x : x;
     this.startWaitingCallback = options ? options.startWaitingCallback ? options.startWaitingCallback : function () { } : function () { };
@@ -66,7 +68,20 @@ let workOnQueueLW = async (ctx) => {
 function checkWaitingLW(ctx) {
     return new Promise(function (resolve) {
         if (ctx.mC < ctx.mLim && ctx.hC < ctx.hLim) {
-            resolve(); // do not have to wait
+            if (ctx.msWait > 0) {
+                ctx.startWaitingCallback({
+                    millisecondsToWait: ctx.msWait
+                })
+                waitMilliseconds(ctx.msWait)
+                    .then(() => {
+                        ctx.endWaitingCallback({
+                            millisecondsWaited: ctx.msWait
+                        })
+                        resolve();
+                    })
+            } else {
+                resolve(); // do not have to wait
+            }
         } else if (ctx.hC >= ctx.hLim) {
             let d = new Date().getMinutes();
             let minutes = 60 - d;
@@ -107,6 +122,15 @@ function checkWaitingLW(ctx) {
                     resolve()
                 })
         }
+    })
+}
+
+function waitMilliseconds(milliseconds) {
+    return new Promise(function (resolve) {
+        let t = setTimeout(function () {
+            clearTimeout(t);
+            resolve();
+        }, milliseconds)
     })
 }
 
