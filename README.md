@@ -37,6 +37,7 @@ Perhaps you already know about the limits (maybe from the API docs).
 
 ```javascript
      import patiently from "patiently";
+     // let patiently = require("patiently");
 
      let options = {
        startWaitingCallback: function(info){console.log(info)}, // default is function(){}, calls a function if waiting necessary
@@ -48,20 +49,28 @@ Perhaps you already know about the limits (maybe from the API docs).
        test: false // default is false (if true, max waiting time is 5 secs)
      }
 
-     var waiter = patiently.LimitWaiter(options);
+     var waiter = new patiently.LimitWaiter(options);
 
-     let myApiCallFunction = async () => {
+     let myApiCallFunction = async (url, callback) => {
          waiter.wait(function(){
            // your api call
+           axios.get(url)
+             .then(res => {
+                callback(res.data);
+             })
+             .error(err => {
+                callback(null, err);
+             })
          })
      }
 
      // you can call myApiCallFunction as often you want
      // patiently can handle asynchronous api calls :)
-     myApiCallFunction();
-     myApiCallFunction();
-     myApiCallFunction();
-     myApiCallFunction();
+     let url = "https://www.npmjs.com/package/patiently";
+     myApiCallFunction(url);
+     myApiCallFunction(url);
+     myApiCallFunction(url);
+     myApiCallFunction(url);
      // ...
  ```
 
