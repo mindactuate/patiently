@@ -17,9 +17,9 @@ Sometimes there is no other way to be patient and to wait for the API rate limit
 
 ## Planned Features
 
-- [x] Add secondly limit feature (e.g. 2 reqs per second).
-- [] If required I can add a "maxConcurrent" feature like in [bottleneck](https://www.npmjs.com/package/bottleneck)
-- [] I'm also trying to figure out how to deal with rate limit headers like ```x-ratelimit-remaining``` or ```retry-after```. At first sight this is not so easy, because the first headers only arrive after the first API call. And until then, any number of API calls could have been fired.
+- [x] Add secondly limit feature (e.g. 2 reqs per second). --> Done: You can now adjust a millisecondly waiting time between two calls.
+- [ ] If required I can add a "maxConcurrent" feature like in [bottleneck](https://www.npmjs.com/package/bottleneck)
+- [ ] I'm also trying to figure out how to deal with rate limit headers like ```x-ratelimit-remaining``` or ```retry-after```. At first sight this is not so easy, because the first headers only arrive after the first API call. And until then, any number of API calls could have been fired.
 
 ## Installing
 
