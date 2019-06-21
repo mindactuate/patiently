@@ -1,5 +1,5 @@
 # patiently
-Promise based API rate limit handler. Make your API client patient. A legal way to wait for API rate limit resets.
+API rate limit handler. Make your API client patient. A legal way to wait for API rate limit resets.
 
 [![npm version](https://img.shields.io/npm/v/patiently.svg?style=flat-square)](https://www.npmjs.com/package/patiently)
 [![install size](https://packagephobia.now.sh/badge?p=patiently)](https://packagephobia.now.sh/result?p=patiently)

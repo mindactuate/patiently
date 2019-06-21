@@ -3,27 +3,16 @@ const x = Infinity;
 /**
  * Waiter based on API rate limits you enter manually
  *
- *    import patiently from "patiently";
- *
- *    let options = {
- *      startWaitingCallback: {function}, // default is function(){}, calls a function if waiting necessary
- *      endWaitingCallback: {function}, // default is function(){}, calls a function after waiting
- *      waitingTickCallback: {function}, // default is function(){}, calls a function every tick
- *      msBetweenTwoCalls: {integer}, // default is 0 milliseconds (no waiting time between two calls)
- *      minutelyLimit: {integer}, // default is Infinity (no minutely limit set)
- *      hourlyLimit: {integer}, // default is Infinity (no hourly limit set)
- *      test: {boolean}, // default is false (if true, max waiting time is 5 secs)
- *    }
- *
- *    var limitWaiter = waiter.LimitWaiter(options);
- *
- *    let myApiCallFunction = async () => {
- *        limitWaiter.wait(function(){
- *           // your api call
- *        })
- *    }
+ * (Please read README in package to get further info)
  *
  * @param {Object} options
+ * @param {function} options.startWaitingCallback
+ * @param {function} options.endWaitingCallback
+ * @param {function} options.waitingTickCallback
+ * @param {Number} options.msBetweenTwoCalls
+ * @param {Number} options.minutelyLimit
+ * @param {Number} options.hourlyLimit
+ * @param {boolean} options.test
  * @constructor
  */
 function LimitWaiter(options) {
