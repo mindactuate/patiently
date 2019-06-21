@@ -1,7 +1,7 @@
 {
   "name": "patiently",
-  "version": "2.1.3",
-  "description": "API rate limit handler. Make your API client patient. A legal way to wait for API rate limit resets.",
+  "version": "2.1.4",
+  "description": "API rate limit handler for (Node) JS. Make your API client patient. A legal way to wait for API rate limit resets.",
   "main": "index.js",
   "scripts": {
     "test": "node test.js"
