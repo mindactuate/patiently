@@ -10,6 +10,11 @@ API rate limit handler for (Node) JS. Make your API client patient. A legal way 
 
 Sometimes there is no other way to be patient and to wait for the API rate limit to reset. Just think of a personalized API that allows you to perform actions in a specific user context. You want to do like 10.000 reqs as fast as possible. What if there are rate limits like 50 reqs per minute and 750 reqs per hour? And what if those limits are not bound to an IP or a host but to your user? In this case there is no other way but to wait for a limit reset. Of course, you can also politely ask the API owner to increase the limits. But even then you need **patiently**. :)
 
+## News
+
+**Jun 28, 2020**
+I just wrote an article about logmailer. You can find it on [Medium](https://medium.com/@mindactuate/patiently-an-api-rate-limit-handler-for-node-js-a-legal-way-to-wait-for-api-rate-limit-resets-9abaca5e81e) and [Dev.to](https://dev.to/mindactuate/patiently-an-api-rate-limit-handler-for-node-js-a-legal-way-to-wait-for-api-rate-limit-resets-51dp).
+
 ## Features
 
 - **patiently** will handle API rate limits for you and make your API client wait for a limit reset automatically
