@@ -13,7 +13,7 @@ Sometimes there is no other way to be patient and to wait for the API rate limit
 ## News
 
 **Jun 28, 2020**
-I just wrote an article about logmailer. You can find it on [Medium](https://medium.com/@mindactuate/patiently-an-api-rate-limit-handler-for-node-js-a-legal-way-to-wait-for-api-rate-limit-resets-9abaca5e81e) and [Dev.to](https://dev.to/mindactuate/patiently-an-api-rate-limit-handler-for-node-js-a-legal-way-to-wait-for-api-rate-limit-resets-51dp).
+I just wrote an article about patiently. You can find it on [Medium](https://medium.com/@mindactuate/patiently-an-api-rate-limit-handler-for-node-js-a-legal-way-to-wait-for-api-rate-limit-resets-9abaca5e81e) and [Dev.to](https://dev.to/mindactuate/patiently-an-api-rate-limit-handler-for-node-js-a-legal-way-to-wait-for-api-rate-limit-resets-51dp).
 
 ## Features
 
